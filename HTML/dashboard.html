@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Principal - Rise of self</title>
+     <link rel="stylesheet" href="/HTML/style.css"> 
+</head>
+<body>
+
+    <!-- Este es el header (lo de arriba) -->
+    <header class="main-header">
+        <a href="/HTML/dashboard.html" class="logo">Rise of self</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/HTML/dashboard.html">Panel Principal</a></li>
+                <li><a href="/HTML/quest.html">Misiones</a></li>
+                <li><a href="/HTML/armory.html">Armería</a></li>
+                <li><a href="#">Perfil</a></li> <!-- Aquí se va a dirigir al perfil del usuario, todavía no funciona -->
+                <li><a href="/HTML/index.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Esta parte es el body de la página -->
+    <main class="dashboard-content">
+
+        <!-- Seccion para mostrar el resumen del perfil -->
+        <section class="hero-summary">
+            <h2>¡Bienvenido, Héroe!</h2>
+            <div class="stats-container">
+                <!-- Este es para el estatus de la barra de mente en el progreso -->
+                <div class="stat-bar">
+                    <label>🧠 Mente - Nivel 5</label>
+                    <progress value="70" max="100"></progress> <!--  progress para la barra  y max para el total y value para el progreso de la barra-->
+                </div>
+                <!-- Seccion para mostrar el estatus de el cuerpo -->
+                <div class="stat-bar">
+                    <label>💪 Cuerpo - Nivel 4</label>
+                    <progress value="40" max="100"></progress>
+                </div>
+                <!-- Seccion para mostrar el estatus de el espíritu -->
+                <div class="stat-bar">
+                    <label>🧘🏻 Espíritu - Nivel 6</label>
+                    <progress value="90" max="100"></progress>
+                </div>
+            </div>
+        </section>
+
+        <!-- Es para que muestre las misiones de ese día -->
+        <section class="today-quests">
+            <h2>Misiones de Hoy</h2>
+            <ul class="quest-list">
+                <!-- Esto es una "plantilla" de cómo se verá cada misión -->
+                <li class="quest-item">
+                    <div class="quest-info">
+                        <h3>Estudiar Ecuaciones Diferenciales (Misión Principal)</h3>
+                        <p>estudiar la transformada de laplace</p>
+                    </div>
+                    <div class="quest-actions">
+                        <span>+50 XP 🧠</span> <!-- Para resaltar el texto-->
+                        <button class="button-complete">Completar</button>
+                    </div>
+                </li>
+                <li class="quest-item">
+                     <div class="quest-info">
+                        <h3>Entrenamiento Físico (Misión Secundaria)</h3>
+                        <p>Salir a correr 30 minutos.</p>
+                    </div>
+                    <div class="quest-actions">
+                        <span>+30 XP 💪</span>
+                        <button class="button-complete">Completar</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Esta parte es para llenar una misión nueva -->
+        <section class="quick-add"> <!-- Es para crear una nueva misión tipo formulario -->
+             <h2>Añadir Misión Rápida</h2>
+             <form class="quick-add-form">
+                <input type="text" placeholder="Ej: Meditar por 10 minutos..."> <!-- El placeholder es para poner un ejemplo de que es lo que va en el campo-->
+                <button type="submit" class="button-primary">Añadir</button>
+             </form>
+        </section>
+
+    </main>
+
+    <!-- Es el footer que va hasta abajo  -->
+    <footer class="main-footer">
+        <p> 2025 Rise of self - La aventura de tu vida</p>
+    </footer>
+
+</body>
+</html>

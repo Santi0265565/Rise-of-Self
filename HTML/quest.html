@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Misiones - Rise of self</title>
+    <link rel="stylesheet" href="/HTML/style.css"> 
+</head>
+<body>
+    
+    <!-- Es el mismo header -->
+    <header class="main-header">
+        <a href="/HTML/dashboard.html" class="logo">Rise of self</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/HTML/dashboard.html">Panel Principal</a></li>
+                <li><a href="/HTML/quest.html">Misiones</a></li>
+                <li><a href="/HTML/armory.html">Armería</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="/HTML/index.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="quests-content">
+        <h1>Libro de Misiones</h1>
+
+        <!-- Componente: Filtros -->
+        <div class="filter-controls">
+            <button class="button-filter active">Todas</button>
+            <button class="button-filter">Mente 🧠</button>
+            <button class="button-filter">Cuerpo 💪</button>
+            <button class="button-filter">Espíritu 🧘🏻</button>
+        </div>
+
+        <!-- Estas son las misiones principales -->
+        <section>
+            <h2>Misiones Principales</h2>
+            <ul class="quest-list">
+                <li class="quest-item">
+                    <div class="quest-info">
+                        <h3>Aprender Desarrollo Web </h3>
+                        <p>Dominar HTML, CSS, React y Typescript</p>
+                    </div>
+                    <div class="quest-actions">
+                        <span>+1000 XP 🧠</span>
+                        <button class="button-details">Ver Detalles</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Aquí están las misiones secundarias -->
+        <section>
+            <h2>Misiones Secundarias</h2>
+            <ul class="quest-list">
+                 <li class="quest-item">
+                    <div class="quest-info">
+                        <h3>Meditar 30 minutos</h3>
+                        <p>Hacer una meditación guiada y luego tomar notas.</p>
+                    </div>
+                    <div class="quest-actions">
+                        <span>+150 XP 🧘🏻</span>
+                        <button class="button-details">Ver Detalles</button>
+                    </div>
+                </li>
+                 <li class="quest-item">
+                    <div class="quest-info">
+                        <h3>Aplicar para un intercambio</h3>
+                        <p>Investigar escuelas, presupuestos, ciudades y disponibilidad.</p>
+                    </div>
+                    <div class="quest-actions">
+                        <span>+200 XP 🧠</span>
+                        <button class="button-details">Ver Detalles</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <!-- Mismo footer -->
+    <footer class="main-footer">
+        <p> 2025 Rise of self - La aventura de tu vida</p>
+    </footer>
+
+</body>
+</html>

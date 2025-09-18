@@ -1,0 +1,355 @@
+:root 
+{
+    --color-background: #121212; /* Fondo obscuro */
+    --color-surface: #1e1e1e;   /* El color de todas los cuadros o contenedores  */
+    --color-primary: #bb86fc;   /* contrastes principales morado */
+    --color-secondary: #03dac6; /* Contrastes secundarios verde azulado */
+    --color-text-primary: #ffffff; /* Principal Blanco */
+    --color-text-secondary: #b3b3b3; /* Secundario Gris claro */
+    --border-radius: 8px; /* Redondear los bordes */
+}
+
+
+
+body 
+{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+a 
+{
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover 
+{
+    color: var(--color-secondary);
+}
+
+h1, h2, h3 
+{
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+img 
+{
+    max-width: 100%;
+    display: block;
+}
+
+
+
+/* --- EL header principal --- */
+.main-header 
+{
+    background-color: var(--color-surface);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo 
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.main-nav ul 
+{
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Espacio entre elementos del menú */
+}
+
+.main-nav a 
+{
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.main-nav a:hover 
+{
+    color: var(--color-text-primary);
+}
+
+
+/* --- Para el footer de la página-- */
+.main-footer 
+{
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+/* --- Para los botones --- */
+.button-primary 
+{
+    background-color: var(--color-primary);
+    color: #000000;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button-primary:hover 
+{
+    background-color: #a966fa;
+}
+
+.button-complete 
+{
+    background-color: var(--color-secondary);
+    color: #000000;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.button-complete:hover 
+{
+    opacity: 0.8;
+}
+
+/* --- Estos son para los formularios --- */
+.form-group 
+{
+    margin-bottom: 1.5rem;
+}
+
+.form-group label 
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-group input, input[type="text"] 
+{
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: var(--border-radius);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+}
+.form-group input:focus, input[type="text"]:focus 
+{
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+
+/* --- Estos son para los ítems de las misiones) --- */
+.quest-list 
+{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quest-item 
+{
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--color-primary);
+    transition: transform 0.2s ease-in-out;
+}
+.quest-item:hover 
+{
+    transform: translateY(-3px);
+}
+.quest-item h3 
+{
+    margin: 0 0 0.25rem 0;
+}
+.quest-item p 
+{
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+.quest-actions 
+{
+    text-align: right;
+}
+.quest-actions span 
+{
+    display: block;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Contenido de la página --- */
+main 
+{
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Para que las secciones tengan espacio */
+}
+
+/* --- Para la página del login --- */
+.login-container 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.login-form 
+{
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+.login-form h2 
+{
+    text-align: center;
+}
+.tagline 
+{
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+.auth-switch 
+{
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* --- Este es para la página principal--- */
+.hero-summary .stats-container 
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+.stat-bar label 
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.stat-bar progress 
+{
+    width: 100%;
+    height: 12px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+/* PAra la barra de progresos */
+progress::-webkit-progress-bar 
+{
+   background-color: #333;
+   border-radius: 10px;
+}
+progress::-webkit-progress-value 
+{
+   background-color: var(--color-secondary);
+   border-radius: 10px;
+}
+
+/* Para los formularios rápidos */
+.quick-add-form 
+{
+    display: flex;
+    gap: 1rem;
+}
+.quick-add-form input 
+{
+    flex-grow: 1; /* El input tomará todo el espacio disponible */
+}
+
+/* --- Para la página de misiones--- */
+.filter-controls 
+{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.button-filter 
+{
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    border: 1px solid #555;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.button-filter:hover, .button-filter.active 
+{
+    background-color: var(--color-primary);
+    color: #000;
+    border-color: var(--color-primary);
+}
+
+
+/* --- Para la página de la armería--- */
+.clothing-gallery 
+{
+    display: grid; /*El grid se ajusta */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.clothing-item 
+{
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Para que las imagnes no se salgan de los bordes*/
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+.clothing-item:hover 
+{
+    transform: translateY(-5px);
+}
+.clothing-item .item-info 
+{
+    padding: 1rem;
+}
+.clothing-item .item-info h3 
+{
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+.item-stats 
+{
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
