@@ -1,0 +1,306 @@
+:root {
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-primary: #bb86fc;
+    --color-secondary: #03dac6;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b3b3b3;
+    --border-radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+a { color: var(--color-text-primary); text-decoration: none; }
+a:hover { color: var(--color-primary); }
+
+/* --- Componentes --- */
+.main-header {
+    background-color: var(--color-surface);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--color-primary); }
+.main-nav ul { list-style: none; display: flex; gap: 1.5rem; }
+
+.quest-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+.quest-item {
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--color-primary);
+}
+.button-complete {
+    background-color: var(--color-secondary);
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+}
+.hero-summary { margin: 2rem 0; padding: 1rem; background: var(--color-surface); border-radius: var(--border-radius); }
+.stats-container { margin-top: 1rem; }
+.stat-bar { margin-bottom: 0.5rem; }
+.stat-bar label { display: block; margin-bottom: 0.2rem; }
+progress { width: 100%; height: 10px; }
+main { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+
+.hero-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: linear-gradient(145deg, var(--color-surface), #252525);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.avatar-section {
+    flex: 0 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.avatar-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #333;
+    border: 4px solid var(--color-primary);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+.hero-level-badge {
+    background: var(--color-secondary);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.stats-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-title h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-text-primary);
+}
+
+.hero-title p {
+    margin: 0 0 1.5rem 0;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.rpg-stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+/* --- BARRAS DE PROGRESO GAMIFICADAS --- */
+
+/* El contenedor de la barra (el fondo oscuro) */
+.rpg-progress-track {
+    background-color: #0f0f0f;
+    border-radius: 20px;
+    height: 24px; /* Más gruesa para que se vea poderosa */
+    width: 100%;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); /* Profundidad interna */
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #333;
+}
+
+/* La barra llena (animaciones y base) */
+.rpg-progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Para poner el texto al final si queremos */
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Movimiento suave tipo resorte */
+    
+    /* Patrón de rayitas brillantes para que parezca energía */
+    background-image: 
+        linear-gradient(
+            45deg, 
+            rgba(255,255,255,0.15) 25%, 
+            transparent 25%, 
+            transparent 50%, 
+            rgba(255,255,255,0.15) 50%, 
+            rgba(255,255,255,0.15) 75%, 
+            transparent 75%, 
+            transparent
+        );
+    background-size: 40px 40px;
+    animation: move-stripes 2s linear infinite; /* ¡Animación de movimiento! */
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Animación de las rayitas */
+@keyframes move-stripes {
+    0% { background-position: 40px 0; }
+    100% { background-position: 0 0; }
+}
+
+/* --- COLORES Y BRILLOS POR TIPO --- */
+
+/* --- SISTEMA DE TIERS (RANGOS) RPG --- */
+
+/* BRONCE (1-10) - Rústico, mate, sólido */
+.tier-bronze {
+    background: linear-gradient(180deg, #a67c52 0%, #8a623c 100%);
+    border-right: 2px solid #6d4c41;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* PLATA / ACERO (11-30) - Metálico, brillante, frío */
+.tier-silver {
+    background: linear-gradient(135deg, #bdc3c7 0%, #e0e0e0 50%, #bdc3c7 100%);
+    border-right: 2px solid #ecf0f1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+/* Efecto de brillo metálico pasando */
+.tier-silver::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    animation: shine-silver 3s infinite;
+}
+
+/* ORO (31-50) - Dorado, lujoso, resplandor amarillo */
+.tier-gold {
+    background: linear-gradient(180deg, #f1c40f 0%, #f39c12 100%);
+    border: 1px solid #fcd04b;
+    box-shadow: 0 0 15px #f39c12, inset 0 2px 5px rgba(255, 255, 255, 0.4);
+}
+/* Destellos dorados */
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 15px #f39c12; }
+    50% { box-shadow: 0 0 25px #f1c40f; }
+    100% { box-shadow: 0 0 15px #f39c12; }
+}
+.tier-gold {
+    animation: pulse-gold 2s infinite alternate;
+}
+
+.tier-diamond {
+    background: linear-gradient(90deg, #81ecec, #74b9ff, #a29bfe, #81ecec);
+    background-size: 300% 300%;
+    border-right: 2px solid #fff;
+    box-shadow: 0 0 20px #74b9ff;
+    animation: diamond-flow 3s ease infinite;
+}
+
+@keyframes diamond-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shine-silver {
+    0% { left: -100%; }
+    20% { left: 200%; } 
+    100% { left: 200%; }
+}
+
+.badge-bronze { background: #8a623c; color: #ebdccc; border: 1px solid #a67c52; }
+.badge-silver { background: #95a5a6; color: #fff; text-shadow: 0 1px 2px black; border: 1px solid #bdc3c7; }
+.badge-gold { background: linear-gradient(180deg, #f39c12, #d35400); color: #fff; border: 1px solid #f1c40f; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.4); }
+.badge-diamond { background: #00cec9; color: black; font-weight: 900; border: 2px solid white; box-shadow: 0 0 10px #81ecec; }
+
+
+
+.theme-cyberpunk {
+    --color-background: #050011;
+    --color-surface: #120024;
+    --color-primary: #ff00ff; 
+    --color-secondary: #00ffff;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #d580ff;
+    border: 2px solid #00ffff; 
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.theme-zen {
+    --color-background: #e6e2d3; 
+    
+    --color-surface: #f7f5f0;
+    
+    --color-primary: #4a6c52;
+    
+    --color-secondary: #8c8674;
+    
+    --color-text-primary: #1f2623;
+    --color-text-secondary: #525252;
+    
+    font-family: 'Georgia', 'Cambria', serif;
+}
+
+.theme-zen .hero-card,
+.theme-zen .quest-item,
+.theme-zen section {
+    border: 1px solid #cbbda8 !important;/* Sombra sutil */
+}
+
+.theme-zen h1, 
+.theme-zen h2, 
+.theme-zen h3, 
+.theme-zen .stat-icon {
+    color: #2d3831 !important;
+    text-shadow: none !important; 
+}
+
+.theme-zen input, 
+.theme-zen select {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border: 1px solid #cbbda8 !important;
+}
+
+.theme-zen .button-primary,
+.theme-zen .button-complete {
+    background-color: var(--color-primary) !important;
+    color: #fff !important; 
+}
